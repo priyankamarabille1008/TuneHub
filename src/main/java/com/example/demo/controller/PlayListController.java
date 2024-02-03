@@ -31,22 +31,25 @@ public class PlayListController {
 	}
 	
 	@PostMapping("/addPlayList")
-	public String addPlayList(@ModelAttribute PlayList playlist) {
+	public String addPlayList(@ModelAttribute PlayList playlist,Model model) {
 		
+		boolean playListExist = playserv.playListExist(playlist.getName());
+		if(!playListExist) {
 		//update playlist table
 		playserv.addPlayList(playlist);
-		
 		//update song table
 		List<Song> songlist = playlist.getSongs();
-
 			for(Song s: songlist) {
-
 					 s.getPlaylists().add(playlist);
 					 serv.updateSong(s);
 
 			}
-
-		return "adminHome";
+			model.addAttribute("message", "PlayList created Successfully.");
+			return "createPlayList";
+		}else {
+			 model.addAttribute("error", "PlayList already exists.");
+		        return "createPlayList";
+		}
 	}
 	
 	@GetMapping("/viewPlaylists")
@@ -56,5 +59,30 @@ public class PlayListController {
 		
 		return "displayPlayList";
 	}
+	
+	@GetMapping("/addSong")
+	public String addSongsToPlayList(Model model) {
+		model.addAttribute("songs",serv.fetchAllSongs());
+		return "addSongsToPlayList";
+	}
+	
+	@PostMapping("/newSongs")
+	public String newSongs(@ModelAttribute PlayList playlist,Model model) {
+		
+		PlayList existingPlayList = playserv.getPlayListByName(playlist.getName());
+		System.out.println(existingPlayList);
+		if (existingPlayList != null) {
+	        List<Song> existingSongs = existingPlayList.getSongs();
+	        List<Song> newSongs = playlist.getSongs();
+	        System.out.println(newSongs);
 
+	        // Add new songs to the existing playlist
+	        existingSongs.addAll(newSongs);
+
+	        // Update the playlist in the data store
+	        playserv.updatePlayList(existingPlayList);
+		}
+	        return "addSongsToPlayList";
+	}
+	
 }

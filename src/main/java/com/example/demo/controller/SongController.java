@@ -1,7 +1,5 @@
 package com.example.demo.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,7 +8,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.example.demo.entity.Song;
-import com.example.demo.entity.Users;
 import com.example.demo.services.PlayListService;
 import com.example.demo.services.SongService;
 import com.example.demo.services.UsersService;
@@ -34,16 +31,17 @@ public class SongController {
 	PlayListService playserv;
 	
 	@PostMapping("/addSong")
-	public String addSong(@ModelAttribute Song songs) {
-		
-		boolean songState=songserv.songExists(songs.getName());
-		if(songState == false) {
-			songserv.addSong(songs);
-			System.out.println("Song added");
-		}else {
-			System.out.println("Song Already exists");
-		}
-		return "adminHome";
+	public String addSong(@ModelAttribute Song songs, Model model) {
+	    boolean songExists = songserv.songExists(songs.getName());
+
+	    if (!songExists) {
+	        songserv.addSong(songs);
+	        model.addAttribute("message", "Song added successfully.");
+	        return "addSong";
+	    } else {
+	        model.addAttribute("error", "Song already exists.");
+	        return "addSong";
+	    }
 	}
 	
 	@GetMapping("/viewSongs")
@@ -58,19 +56,10 @@ public class SongController {
 		return "viewSongs";
 	}
 	
-	@GetMapping("/premium")
+	@GetMapping("/isPremium")
 	public String playSongs(Model model){
-		boolean premiumUser = true;
-		System.out.println(premiumUser);
-		if(premiumUser == true) {
 			model.addAttribute("songs",songserv.fetchAllSongs());
-			return "viewSongs";
-		}else {
-			return "makePayment";
-		}
+			return "customerHome";
 	}
-
-
-
 }
 

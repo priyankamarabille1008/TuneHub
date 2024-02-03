@@ -1,37 +1,44 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<title>Registrationform</title>
-<link rel="stylesheet" href="./form.css">
-<link rel="stylesheet" href="./index.css">
+    <meta charset="ISO-8859-1">
+    <title>Registration Form</title>
+     <link rel="stylesheet" href="./navbar.css">
+     <link rel="stylesheet" href="./register.css">
 
 </head>
 <body>
-	
-	<nav>
-       <h1>Register Here</h1>
+    <nav>
+        <h1>Register Here</h1>
         <ul>
             <li><a href="/register">Register</a></li>
             <li><a href="/login">Login</a></li>
         </ul>
     </nav>
-	<form action="register" method="post">
-	<label>User Name:</label><input type="text" name="username" placeholder="Username"/><br/><br/>
-	<label>Email:</label><input type="email" name="email" placeholder="Email"/><br/><br/>
-	<label>Password:</label><input type="password" name="password" placeholder="Password"/><br/><br/>
-	<label>Gender:</label> <br/><br/>
-	<input type="radio" value="male"  name="gender"/>M
-	<input type="radio" value="female" name="gender"/>F
-	<input type="radio" value="other" name="gender"/>O<br/><br/>
-	<label>Role:</label><br/><br/>
-	<input type="radio" name="role" value="admin"/>Admin
-	<input type="radio" name="role" value="customer"/>Customer<br/><br/>
-	<label>Address:</label><br/><br/>
-	<textarea placeholder="address" name="Please Enter Your Address"></textarea>
-	<br/><br/>
-	<input type="submit" value="Submit"/> 
-	
-	</form>
+    <div class="form-container">
+    <form action="" method="post">
+     <div th:if="${error}" class="error-message">
+            <p th:text="${error}"></p>
+        </div>
+        <label>User Name</label><input type="text" name="username" placeholder="Username"/><br/><br/>
+        <label>Email</label><input type="email" name="email" placeholder="Email"/><br/><br/>
+        <label>Password</label><input type="password" name="password" placeholder="Password"/><br/><br/>
+        <label>Gender</label>
+        <select name="gender">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+        </select><br/><br/>
+        <label>Role</label>
+        <select name="role">
+        	<option value="admin">Admin</option>
+        	<option value="customer">Customer</option>
+        </select><br/><br/>
+        <label for="address">Address</label>
+        <textarea placeholder="Enter Your Address" name="address"></textarea>
+        <br/><br/>
+        <input type="submit" value="Submit"/> 
+    </form>
+    </div>
 </body>
 </html>

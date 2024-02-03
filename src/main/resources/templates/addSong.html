@@ -3,11 +3,30 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>addnewSong</title>
-<link rel="stylesheet" href="./insertdata.css">
+<link rel="stylesheet" href="addSongs.css">
 </head>
 <body>
 
+<div class="sidebar">
+        <h1>Admin Mode</h1>
+        <ul>
+            <li><a href="\newsong">Add Songs</a></li>
+            <li><a href="\viewSongs">View All Songs</a></li>
+            <li><a href="\createPlayList">Create Playlist</a></li>
+            <li><a href="\viewPlaylists">View All Playlists</a></li>
+            <li><a href="logout">Logout</a></li>
+        </ul>
+    </div>
+    
+    <div class="content">
 <form action="addSong" method="post">
+	
+		 <div th:if="${message}" class="message">
+        <p th:text="${message}" ></p>
+        </div>
+        <div th:if="${error}" class="error">
+        <p th:text="${error}" ></p>
+        </div>
 	<h1>Add Song</h1>
 	<label>Name</label><input type="text" name="name" /><br/><br/>
 	<label>Artist</label><input type="text" name="artist" /><br/><br/>
@@ -16,5 +35,6 @@
 	
 	<input type="submit" value="Add Song"/>
 	</form>
+	</div>
 </body>
 </html>
