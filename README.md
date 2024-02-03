@@ -31,7 +31,8 @@ Customer Login:
 Log in as a customer to access personalized features.
 Subscribe to Songs:
 <img width="954" alt="Screenshot 2024-02-03 185116" src="https://github.com/priyankamarabille1008/TuneHub/assets/110758614/bfc3cfc0-768b-459a-b23a-21213acc491e">
-<img width="841" alt="Screenshot 2024-02-03 185258" src="https://github.com/priyankamarabille1008/TuneHub/assets/110758614/ec479f33-eb47-49ea-8c6f-3846b9ae87e8">
+<img width="841" alt="Screenshot 2024-02-03 185258" src="https://github.com/priyankamarabille1008/TuneHub/assets/110758614/42e15cc5-aa2c-4ad4-8b2a-5ef04a617ee6">
+
 
 Enjoy an enhanced musical experience by subscribing to premium songs.
 View All Songs:
@@ -39,4 +40,4 @@ View All Songs:
 
 Explore the extensive library of songs available on Tune Hub.
 Play Songs:
-Dive into the world of music by playing your favorite tunes.
+Dive into the world of music by playing your favourite tunes.
