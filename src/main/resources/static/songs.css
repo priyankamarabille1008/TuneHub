@@ -1,0 +1,119 @@
+body {
+    font-family: 'Arial', sans-serif;
+   background-color: #c0c0c0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.button a{
+    display: block;
+    padding: 6px; 
+    text-decoration: none;
+    color: #fff; 
+    background-color: #3498db; 
+    border-radius: 5px; 
+    width:90px;
+    text-align:center;
+    transition: background-color 0.3s ease; 
+}
+
+.button ul {
+    list-style: none;
+}
+
+.button li {
+    display: flex; 
+    padding:10px;
+    margin:5px;
+}
+
+.button a:hover {
+    background-color: #2980b9;
+}
+
+
+.message{
+	background-color: #008040;
+    color: #00ffff;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.error {
+	
+    background-color: #ff9999;
+    color: #cc0000;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.sidebar {
+    width: 150px;
+    background-color: #aac4d5;
+    color: white;
+    padding: 20px;
+    box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.1);
+    height: 100vh;
+    position: fixed;
+    overflow-y: auto;
+}
+
+.sidebar h1 {
+    font-size: 22px;
+    margin-bottom: 20px;
+    color:#000040;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 10px;
+}
+
+.sidebar li {
+    margin-bottom: 10px;
+}
+
+.sidebar a {
+    text-decoration: none;
+    color: #8000ff;
+    font-weight: bold;
+}
+
+.sidebar a:hover {
+    color: #ddd;
+}
+
+.content {
+    flex: 1;
+    padding: 20px;
+    margin-left: 250px;
+}
+
+
+.content h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.songs {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.boxs {
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    margin: 20px;
+    padding: 20px;
+    width: 250px;
+}
+
+audio {
+    width: 100%;
+    margin-top: 15px;
+}

@@ -1,0 +1,65 @@
+body{
+	background: url('backroundimg.jpg') center/cover no-repeat;
+}
+
+.form-container {
+    margin-top: 50px; /* Adjust as needed for visual separation */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.error-message {
+    background-color: #ff9999;
+    color: #cc0000;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+.successful{
+	background-color: #008040;
+    color: #00ffff;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+form {
+    background: url('registerbg.jpg') center/cover no-repeat;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); 
+    border-radius: 20px;
+    max-width: 500px;
+    width: 100%;
+    padding: 30px;
+    overflow: hidden;
+}
+
+label {
+    display: block;
+    margin-bottom: 12px;
+    font-weight: bold;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+input[type="submit"] {
+    background-color: #007BFF;
+    color: white;
+    cursor: pointer;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
